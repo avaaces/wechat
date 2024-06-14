@@ -74,6 +74,20 @@ func NewCustomerVoiceMessage(toUser, mediaID string) *CustomerMessage {
 	}
 }
 
+// NewCustomerVideoMessage 视频消息的构造方法
+func NewCustomerVideoMessage(toUser, mediaID string, thumbMediaID string, title string, description string) *CustomerMessage {
+	return &CustomerMessage{
+		ToUser:  toUser,
+		Msgtype: MsgTypeVideo,
+		Video: &MediaVideo{
+			MediaID:      mediaID,
+			ThumbMediaID: thumbMediaID,
+			Title:        title,
+			Description:  description,
+		},
+	}
+}
+
 // NewCustomerMiniprogrampageMessage 小程序卡片消息的构造方法
 func NewCustomerMiniprogrampageMessage(toUser, title, appID, pagePath, thumbMediaID string) *CustomerMessage {
 	return &CustomerMessage{
